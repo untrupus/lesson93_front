@@ -1,7 +1,12 @@
 import axios from "../../axiosAPI";
 import {push} from "connected-react-router";
 import {put} from "redux-saga/effects";
-import {loginUserFailure, loginUserSuccess, registerUserFailure, registerUserSuccess} from "../actions/usersAction";
+import {
+    loginUserFailure,
+    loginUserSuccess,
+    registerUserFailure,
+    registerUserSuccess
+} from "../actions/usersAction";
 import {LOGOUT_USER} from "../actionTypes";
 
 export function* registerUserSaga({userData}) {
@@ -38,7 +43,7 @@ export function* facebookLoginSaga({data}) {
     }
 }
 
-export function* logoutUser() {
+export function* logoutUserSaga() {
     yield axios.delete("/users/sessions");
     yield put({type: LOGOUT_USER});
     yield put(push("/"));

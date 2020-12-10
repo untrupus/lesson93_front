@@ -5,13 +5,14 @@ import {connectRouter, routerMiddleware} from "connected-react-router";
 import createSagaMiddleware from "redux-saga";
 import {rootSaga} from "./sagas";
 import {loadFromLocalStorage, saveToLocalStorage} from "./localStorage";
+import eventsReducer from "./reducers/eventsReducer";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export const history = createBrowserHistory();
 
 const rootReducer = combineReducers({
-
+    events: eventsReducer,
     users: usersReducer,
     router: connectRouter(history)
 });
