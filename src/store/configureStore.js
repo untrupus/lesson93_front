@@ -6,12 +6,14 @@ import createSagaMiddleware from "redux-saga";
 import {rootSaga} from "./sagas";
 import {loadFromLocalStorage, saveToLocalStorage} from "./localStorage";
 import eventsReducer from "./reducers/eventsReducer";
+import friendsReducer from "./reducers/friendsReducer";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export const history = createBrowserHistory();
 
 const rootReducer = combineReducers({
+    friends: friendsReducer,
     events: eventsReducer,
     users: usersReducer,
     router: connectRouter(history)

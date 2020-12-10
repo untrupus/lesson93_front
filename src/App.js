@@ -4,6 +4,7 @@ import Header from "./components/Header/Header";
 import SignUp from "./containers/SignUp/SignUp";
 import SignIn from "./containers/SignIn/SignIn";
 import MainPage from "./containers/MainPage/MainPage";
+import FriendEvents from "./containers/FriendEvents/FriendEvents";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Header/>
         <Switch>
           <Route path="/" exact component={MainPage}/>
+          <Route path="/events/:id" exact component={FriendEvents}/>
           <Route path="/signup" exact component={SignUp}/>
           <Route path="/signin" exact component={SignIn}/>
           <Route render={() => <h1>404</h1>}/>
